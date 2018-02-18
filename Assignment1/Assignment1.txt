@@ -11,7 +11,7 @@ TASK 1: Divide each dataset into train, dev, and test (splits are up to you). Le
 S1: Train: D1-Train, Test: D1-Test
 S2: Train: D2-Train, Test: D2-Test
 S3: Train: D1-Train + D2-Train, Test: D1-Test
-S4: Train: D1-Train + D2-Train, Test: D2-Test
+S4: Tr1-Train + D2-Train, Test: D2-Test
 
 Please use appropriate metric for the comparisons (e.g., perplexity). Report observations on the trends you see and what you think is contributing to it. Provide plots and figures to support claims.
 
