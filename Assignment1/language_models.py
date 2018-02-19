@@ -145,12 +145,7 @@ def calculate_n_grams_probability():
     :return: return a dict having probability for each n-gram
     """
     # Count the total number of words in corpus, without START_SYMBOL but include STOP_SYMBOL
-    total__words = 0
-
-    for uni_gram in UNI_GRAM_COUNT:
-        total__words += UNI_GRAM_COUNT[uni_gram]
-
-    log_n = math.log(total__words, 2)
+    log_n = math.log(TOTAL_TRAIN_WORDS, 2)
     for uni_gram in UNI_GRAM_COUNT:
         UNI_GRAM_PROB[uni_gram] = math.log(UNI_GRAM_COUNT[uni_gram], 2) - log_n
 
@@ -183,6 +178,7 @@ def calculate_n_grams_count(training_data):
 
     total_train_sentences = len(training_data)
 
+    # calculating counts for different n grams
     for sentence in training_data:
 
         for token in sentence:
@@ -192,9 +188,6 @@ def calculate_n_grams_count(training_data):
                 UNI_GRAM_COUNT[token] = 1
 
         UNI_GRAM_COUNT[START_SYMBOL] = total_train_sentences
-
-    # calculating counts for different n grams
-    for sentence in training_data:
 
         for bi_gram in get_n_grams(sentence, 2):
             if bi_gram in BI_GRAM_COUNT:
@@ -287,5 +280,5 @@ if __name__ == '__main__':
     # start timer
     time.clock()
     # use arg : BROWN_DATA_SET for brown corpus and GUTENBERG_DATA_SET for gutenberg corpus
-    main(GUTENBERG_DATA_SET)
+    main(BROWN_DATA_SET)
     print("Total time taken: " + str(time.clock()) + ' sec')
