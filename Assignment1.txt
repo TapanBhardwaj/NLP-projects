@@ -1,0 +1,22 @@
+Assignment 1: Language Models
+
+Deadline: 11:59pm IST, Feb 23 2018 (Fri)
+Weightage: 10%
+
+In this assignment, you will experiment with language models and work with the following two datasets:
+D1: Brown Corpus
+D2: Gutenberg Corpus
+
+TASK 1: Divide each dataset into train, dev, and test (splits are up to you). Let the training splits be D1-Train and D2-Train. Now, implement and build the best LM in the following settings and evaluate.
+S1: Train: D1-Train, Test: D1-Test
+S2: Train: D2-Train, Test: D2-Test
+S3: Train: D1-Train + D2-Train, Test: D1-Test
+S4: Train: D1-Train + D2-Train, Test: D2-Test
+
+Please use appropriate metric for the comparisons (e.g., perplexity). Report observations on the trends you see and what you think is contributing to it. Provide plots and figures to support claims.
+
+TASK 2: Using your best model, you will also be required to generate a sentence of 10 tokens. Include a script with the name generate_random_sentence.sh which when executed will generate a sentence as described above. These auto generated sentences from different students will be compared and evaluated based on their naturalness. Scores will be assigned accordingly.
+
+Source code: Please submit your code on Github and share the link in the report. Also, make sure the code is installed and can be run on the turing cluster (server access details will be posted soon). Include a README.
+
+Report: Please use Latex to typeset your report in the ACL format (http://acl2018.org/downloads/acl18-latex.zip). Please try to keep the report brief and to the point.
