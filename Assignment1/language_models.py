@@ -1,7 +1,6 @@
 import math
 import string
 import time
-from collections import Counter
 from random import shuffle
 
 import nltk
@@ -35,10 +34,6 @@ FOUR_GRAM_LOG_PROB = dict()
 TRAINING_VOCAB = set()
 TOTAL_BI_GRAMS = 0
 
-# dict for lambda and parameters
-COUNT_PREV = dict()
-COUNT_NEXT = dict()
-
 TOTAL_TRAIN_WORDS = 0
 TOTAL_TEST_WORDS = 0
 
@@ -64,20 +59,6 @@ def remove_punctuations(list_sentences):
     return sent_no_punc_marks
 
 
-def get_lambda(history_gram):
-    """
-    λ(w_i-1) = discount* |{w: C(w_i-1 w)>0}| / ∑_v C(w_i-1 v)
-    """
-    numerator = 0.75 * len(COUNT_NEXT[history_gram].keys())
-    denominator = sum(COUNT_NEXT[history_gram].values())
-    return numerator / denominator
-
-
-def get_p_continuation(next_gram):
-    numerator = len(COUNT_PREV[next_gram])
-    return numerator / TOTAL_BI_GRAMS
-
-
 def get_n_grams(sentence, n):
     """
     Return the ngrams including starting and stop words generated from a sentence.
@@ -97,7 +78,7 @@ def set_training_vocab(training_data):
             TRAINING_VOCAB.add(training_data[i][k])
 
 
-def insert_unk_training(training_data, n=50):
+def insert_unk_training_data(training_data, n=50):
     """
     Inserting unk word in training data
     :param training_data:
@@ -136,7 +117,7 @@ def insert_unk_training(training_data, n=50):
         del UNI_GRAM_COUNT[key]
 
 
-def insert_unk_test(test_data):
+def insert_unk_test_data(test_data):
     for i in range(len(test_data)):
         for k in range(len(test_data[i])):
 
@@ -275,7 +256,7 @@ def calculate_n_grams_count(training_data):
 
     UNI_GRAM_COUNT[START_SYMBOL] = total_train_sentences
 
-    insert_unk_training(training_data, 1)
+    insert_unk_training_data(training_data, 1)
 
     # calculating counts for different n grams
     for sentence in training_data:
@@ -393,7 +374,7 @@ def main(sub_task):
     set_training_vocab(train_sentences)
 
     # adding unk in place of Out of Vocab words
-    insert_unk_test(test_sentences)
+    insert_unk_test_data(test_sentences)
 
     # calculate probabilities of n-grams
     calculate_n_grams_probability()

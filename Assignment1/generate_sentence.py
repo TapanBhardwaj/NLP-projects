@@ -13,8 +13,6 @@ BROWN_DATA_SET = 'brown'
 GUTENBERG_DATA_SET = 'gutenberg'
 
 
-# import Assignment1.language_models as lm
-
 def remove_punctuations(list_sentences):
     """
 
