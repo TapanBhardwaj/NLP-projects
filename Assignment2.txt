@@ -1,0 +1,17 @@
+Deadline: 11:59pm IST, Mar 24, 2018 (Fri)
+Weightage: 10%
+
+In this assignment, you will build on Assignment 1. While in assignment 1 you had worked with classical LMs, in this assignment, you will work with Neural Language Models and compare with LM performances from Assignment 1. You will experiment with the following dataset:
+D2: Gutenberg Corpus
+
+
+Divide the dataset into train, dev, and test (splits are up to you). Let the training split be D2-Train. Ideally, you should reuse the splits from Assignment 1. Please use appropriate metric for the comparisons (e.g., perplexity). Now, implement and build the best LM in the following setting and evaluate.
+S2: Train: D2-Train, Test: D2-Test
+
+Task 1: Build the best token level LSTM-based language model you can build for the setting above.
+
+Task 2: Build the best character level LSTM-based language model you can build for the setting above.
+
+Now, based on the experimental results, compare and contrast performances of these two models with the best classical LM for this setting from Assignment 1. Please note that all models need to trained and evaluated on the same splits. If you have lost your splits from Assignment 1, then please retrain the best model from that assignment on the splits you have generated now. Report observations on the trends you see and what you think is contributing to it. Provide plots and figures to support claims.
+
+Task 3: Just like in Assignment 1, using your best model from above, you will also be required to generate a sentence of 10 tokens. Include a script with the name generate_sentence.sh which when executed will generate a sentence as described above. These auto generated sentences from different students will be compared and evaluated based on their naturalness. Scores will be assigned accordingly.
